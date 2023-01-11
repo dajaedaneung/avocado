@@ -7,7 +7,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Code {
     WARNING(85, 100),
-    NORMAL(40, 84),
+    CAUTION(65, 84),
+    NORMAL(40, 64),
     NICE(0, 39);
 
     private final int min;
