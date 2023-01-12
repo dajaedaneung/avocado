@@ -1,8 +1,8 @@
 package com.djdn.warning.domain.density.domain.repository;
 
 import com.djdn.warning.domain.density.domain.Density;
-import com.djdn.warning.global.common.response.GraphResponse;
-import com.djdn.warning.global.common.response.QGraphResponse;
+import com.djdn.warning.domain.density.domain.repository.vo.GraphVo;
+import com.djdn.warning.domain.density.domain.repository.vo.QGraphVo;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -18,10 +18,10 @@ public class DensityRepositoryCustomImpl implements DensityRepositoryCustom {
     private final JPAQueryFactory queryFactory;
 
     @Override
-    public List<GraphResponse> findMonthly(Long cameraId) {
+    public List<GraphVo> findMonthly(Long cameraId) {
         return queryFactory
-                .select(new QGraphResponse(
-                        density.createdAt.dayOfWeek().stringValue(),
+                .select(new QGraphVo(
+                        density.createdAt.dayOfWeek(),
                         density.people.avg()
                 ))
                 .from(density)
@@ -31,7 +31,15 @@ public class DensityRepositoryCustomImpl implements DensityRepositoryCustom {
     }
 
     @Override
-    public List<Density> findDaily(Long cameraId) {
-        return null;
+    public List<GraphVo> findHourly(Long cameraId) {
+        return queryFactory
+                .select(new QGraphVo(
+                        density.createdAt.hour(),
+                        density.people.avg()
+                ))
+                .from(density)
+                .groupBy(density.createdAt.hour())
+                .where(density.camera.id.eq(cameraId))
+                .fetch();
     }
 }

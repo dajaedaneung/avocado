@@ -1,12 +1,12 @@
 package com.djdn.warning.domain.density.domain.repository;
 
-import com.djdn.warning.domain.density.domain.Density;
-import com.djdn.warning.global.common.response.GraphResponse;
+import com.djdn.warning.domain.density.domain.repository.vo.GraphVo;
 
 import java.util.List;
 
 public interface DensityRepositoryCustom {
 
-    List<GraphResponse> findMonthly(Long cameraId);
-    List<Density> findDaily(Long cameraId);
+    List<GraphVo> findMonthly(Long cameraId);
+    List<GraphVo> findHourly(Long cameraId);
 }
+
