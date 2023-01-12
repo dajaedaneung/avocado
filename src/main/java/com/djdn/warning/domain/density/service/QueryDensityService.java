@@ -15,7 +15,7 @@ public class QueryDensityService {
     @Transactional(readOnly = true)
     public DensityResponse execute(Long cameraId) {
         return DensityResponse.of(
-                densityRepository.findFirstByCameraIdOrderByCreatedAtDesc(cameraId)
+                densityRepository.findFirstByCameraIdOrderByCreatedAtDesc(Long.valueOf(cameraId))
         );
     }
 }
