@@ -3,15 +3,14 @@ package com.djdn.warning.domain.density.domain;
 import com.djdn.warning.domain.camera.domain.Camera;
 import com.djdn.warning.domain.density.presentation.dto.type.Code;
 import com.djdn.warning.global.constant.Person;
-import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
@@ -19,7 +18,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "tbl_density")
 @Entity
-@Slf4j
 public class Density {
 
     @Id
