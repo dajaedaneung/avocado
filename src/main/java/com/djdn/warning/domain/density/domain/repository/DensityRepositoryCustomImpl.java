@@ -1,6 +1,5 @@
 package com.djdn.warning.domain.density.domain.repository;
 
-import com.djdn.warning.domain.density.domain.Density;
 import com.djdn.warning.domain.density.domain.repository.vo.GraphVo;
 import com.djdn.warning.domain.density.domain.repository.vo.QGraphVo;
 import com.querydsl.jpa.impl.JPAQueryFactory;
