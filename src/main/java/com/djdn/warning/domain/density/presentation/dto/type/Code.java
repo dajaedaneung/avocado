@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum Code {
-    WARNING(85, 100),
+    WARNING(85, 1000),
     CAUTION(65, 84),
     NORMAL(40, 64),
     NICE(0, 39);
